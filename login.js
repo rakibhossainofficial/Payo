@@ -12,14 +12,29 @@ document
 
     const sum = convertedMainbalance + convertedAmount;
 
-    document.getElementById("main-balance").innerText = sum;
+  
+    const accountNumber = document.getElementById("account-number").value;
 
-    if (convertedPin === 1234) {
-      console.log("Okay Add");
+
+    if (accountNumber.length === 11) {
+      if (amount !== "") {
+        if (convertedPin === 1234) {
+          document.getElementById("main-balance").innerText = sum;
+        } else {
+          alert("Invalid Pin!!");
+        }
+      } else {
+        alert("Please Add Amount");
+      }
     } else {
-      console.log("Invalid Pin");
+      alert("Invalid Account Number!!");
     }
+
+
   });
+
+
+
 
 document.getElementById("addmoney").style.display = "block";
 document.getElementById("cashout").style.display = "none";
@@ -33,3 +48,10 @@ document.getElementById("cashout-btn").addEventListener("click", function () {
   document.getElementById("cashout").style.display = "block";
   document.getElementById("addmoney").style.display = "none";
 });
+
+const logoutBtn = document
+  .getElementById("logout-btn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    window.location.href = "./index.html";
+  });

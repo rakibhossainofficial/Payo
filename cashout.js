@@ -16,13 +16,16 @@ document
     const sum = convertedmainBalance - convertedwithdrawAmount;
 
     if (agentNumber.length === 11) {
-      if (convertedPin === 1234) {
-        document.getElementById("main-balance").innerText = sum;
+      if (withdrawAmount !== "") {
+        if (convertedPin === 1234) {
+          document.getElementById("main-balance").innerText = sum;
+        } else {
+          alert("Enter Valid Pin");
+        }
       } else {
-        alert("Enter Valid Pin");
+        alert("Add some amount");
       }
     } else {
       alert("Enter Valid Number!");
     }
-
-});
+  });
